@@ -1,0 +1,17 @@
+sales_data = [
+    ("Alice", 1200),
+    ("Bob", 900),
+    ("Alice", 800),
+    ("Bob", 1100),
+    ("Charlie", 1500),
+]
+
+totals = {}
+
+for name, amount in sales_data:
+    totals[name] = totals.get(name, 0) + amount
+
+best_employee = max(totals, key=totals.get)
+
+print("Total sales:", totals)
+print("Best employee:", best_employee)
