@@ -1,0 +1,28 @@
+def convert_temperature(value, scale):
+    scale = scale.upper()
+
+    if scale == "C":
+        f = value * 9 / 5 + 32
+        k = value + 273.15
+    elif scale == "F":
+        c = (value - 32) * 5 / 9
+        k = c + 273.15
+        return round(c, 2), round(k, 2)
+    elif scale == "K":
+        c = value - 273.15
+        f = c * 9 / 5 + 32
+        return round(c, 2), round(f, 2)
+    else:
+        return None
+
+    return round(f, 2), round(k, 2)
+
+
+value = float(input("Enter temperature: "))
+scale = input("Enter scale (C/F/K): ")
+
+result = convert_temperature(value, scale)
+if result:
+    print(result)
+else:
+    print("Invalid scale")
